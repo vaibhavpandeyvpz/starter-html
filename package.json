@@ -1,0 +1,41 @@
+{
+  "author": "Vaibhav Pandey <contact@vaibhavpandey.com>",
+  "browserslist": [
+    "last 1 version"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/register": "^7.16.0",
+    "autoprefixer": "^10.4.0",
+    "cross-env": "^7.0.3",
+    "cssnano": "^5.0.11",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-data": "^1.3.1",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-notify": "^4.0.0",
+    "gulp-nunjucks": "^5.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "nunjucks": "^3.2.3",
+    "postcss": "^8.3.11",
+    "sass": "^1.43.4"
+  },
+  "description": "Boilerplate project to kick-start HTML websites.",
+  "license": "MIT",
+  "name": "starter-html",
+  "scripts": {
+    "build:dev": "cross-env NODE_ENV=development gulp build",
+    "build:prod": "cross-env NODE_ENV=production gulp build",
+    "start": "gulp"
+  },
+  "type": "module",
+  "version": "0.0.1"
+}
