@@ -36,12 +36,16 @@ function buildCss() {
     .pipe(sourcemaps.write('.'))
     .pipe(plumber.stop())
     .pipe(gulp.dest('build/css/'))
+    .pipe(notify({
+      message: pkg.name,
+      title: 'Finished building styles!',
+    }))
     .pipe(connect.reload());
 }
 
 function buildHtml() {
   const env = new nunjucks.Environment(new nunjucks.FileSystemLoader('src/html'));
-  return gulp.src(['src/**/*.njk', '!src/**/_*.njk'], { base: 'src/html' })
+  return gulp.src(['src/html/**/*.njk', '!src/html/**/_*.njk'], { base: 'src/html' })
     .pipe(plumber({
       errorHandler(err) {
         console.error(err);
@@ -59,7 +63,7 @@ function buildHtml() {
     .pipe(gulp.dest('build/'))
     .pipe(notify({
       message: pkg.name,
-      title: 'Finished building styles!',
+      title: 'Finished comping views!',
     }))
     .pipe(connect.reload());
 }
@@ -112,7 +116,11 @@ function watchCss() {
 }
 
 function watchHtml() {
-  return gulp.watch('src/html/**/*', buildHtml);
+  return gulp.watch(['src/html/**/*', 'src/globals.json'], buildHtml);
+}
+
+function watchImages() {
+  return gulp.watch('src/images/**/*', images);
 }
 
 function watchJs() {
@@ -120,6 +128,6 @@ function watchJs() {
 }
 
 export const build = gulp.parallel(buildCss, buildHtml, buildJs);
-export const watch = gulp.parallel(watchCss, watchHtml, watchJs);
+export const watch = gulp.parallel(watchCss, watchHtml, watchImages, watchJs);
 
 export default gulp.series(build, images, gulp.parallel(server, watch));
