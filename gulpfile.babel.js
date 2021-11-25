@@ -64,7 +64,7 @@ function buildHtml() {
     .pipe(gulp.dest('build/'))
     .pipe(notify({
       message: pkg.name,
-      title: 'Finished comping views!',
+      title: 'Finished compiling views!',
       onLast: true,
     }))
     .pipe(connect.reload());
