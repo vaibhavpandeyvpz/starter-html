@@ -39,6 +39,7 @@ function buildCss() {
     .pipe(notify({
       message: pkg.name,
       title: 'Finished building styles!',
+      onLast: true,
     }))
     .pipe(connect.reload());
 }
@@ -64,6 +65,7 @@ function buildHtml() {
     .pipe(notify({
       message: pkg.name,
       title: 'Finished comping views!',
+      onLast: true,
     }))
     .pipe(connect.reload());
 }
@@ -87,6 +89,7 @@ function buildJs() {
     .pipe(notify({
       message: pkg.name,
       title: 'Finished building scripts!',
+      onLast: true,
     }))
     .pipe(connect.reload());
 }
@@ -100,6 +103,7 @@ export function images() {
     .pipe(notify({
       message: pkg.name,
       title: 'Finished minifying images!',
+      onLast: true,
     }))
     .pipe(connect.reload());
 }
