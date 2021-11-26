@@ -131,7 +131,7 @@ function watchJs() {
   return gulp.watch('src/js/**/*', buildJs);
 }
 
-export const build = gulp.parallel(buildCss, buildHtml, buildJs);
+export const build = gulp.parallel(buildCss, buildHtml, buildJs, images);
 export const watch = gulp.parallel(watchCss, watchHtml, watchImages, watchJs);
 
-export default gulp.series(build, images, gulp.parallel(server, watch));
+export default gulp.series(build, gulp.parallel(server, watch));
